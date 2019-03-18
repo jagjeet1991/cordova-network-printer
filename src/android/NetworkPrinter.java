@@ -45,7 +45,7 @@ public class NetworkPrinter extends CordovaPlugin {
                 if (ip == null) {
                     throw new Exception("Network address not found.");
                 }
-                String port = int(args.getJSONObject(0).getString("port"));
+                String port = Integer.parseInt(args.getJSONObject(0).getString("port"));
                 if (port == null) {
                     throw new Exception("IP port not found.");
                 }
