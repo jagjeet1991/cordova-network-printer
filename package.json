@@ -1,5 +1,5 @@
 {
- "name": "cordova-plugin-network-printer",
+ "name": "NetworkPrinter",
  "version": "0.0.1",
  "description": "Printing by IP Address",
  "cordova": {
