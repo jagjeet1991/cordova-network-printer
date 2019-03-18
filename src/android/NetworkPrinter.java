@@ -46,9 +46,9 @@ public class NetworkPrinter extends CordovaPlugin {
                     throw new Exception("Network address not found.");
                 }
                 int port = Integer.parseInt(args.getJSONObject(0).getString("port"));
-                if (port == null) {
+                /*if (port == 0 == null) {
                     throw new Exception("IP port not found.");
-                }
+                }*/
                 String content = args.getJSONObject(0).getString("content");
                 if (content == null) {
                     throw new Exception("Print content not found.");
@@ -61,9 +61,9 @@ public class NetworkPrinter extends CordovaPlugin {
                 dos.close();
                 socket.close();
 
-                callbackContext.success(true);
+                callbackContext.success("Success");
             } catch (Exception ex) {
-                callbackContext.error(ex);
+                callbackContext.error("Error");
             }
         } else {
             callbackContext.error("Expected parameters not found.");
