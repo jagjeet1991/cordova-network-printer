@@ -1,0 +1,17 @@
+{
+ "name": "cordova-plugin-network-printer",
+ "version": "0.0.1",
+ "description": "Printing by IP Address",
+ "cordova": {
+  "id": "cordova-plugin-network-printer",
+  "platforms": [
+   "android"
+  ]
+ },
+ "keywords": [
+  "Printer",
+  "Network Printer"
+ ],
+ "author": "Jagjeet Singh",
+ "license": "ISC"
+}
