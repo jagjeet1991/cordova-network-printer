@@ -1,4 +1,4 @@
-package cordova-plugin-network-printer;
+package cordova.plugin.network.printer;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -45,11 +45,11 @@ public class NetworkPrinter extends CordovaPlugin {
                 if (ip == null) {
                     throw new Exception("Network address not found.");
                 }
-                String port = args.getJSONObject(0)..getString("port");
+                String port = args.getJSONObject(0).getString("port");
                 if (port == null) {
                     throw new Exception("IP port not found.");
                 }
-                String content = args.getJSONObject(0)..getString("content");
+                String content = args.getJSONObject(0).getString("content");
                 if (content == null) {
                     throw new Exception("Print content not found.");
                 }
