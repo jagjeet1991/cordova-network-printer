@@ -1,4 +1,4 @@
-# cordova-network-printer
+# Cordova Network Printer
 
 Plugin for Cordova to print plain text by IP Address on network printer.
 
@@ -9,3 +9,7 @@ cordova.plugins.NetworkPrinter.print({
   content: 'Priting Content'
 }, successCallback, errorCallback);
 ```
+
+### Supported Platforms
+
+- Android
