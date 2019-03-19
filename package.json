@@ -1,5 +1,5 @@
 {
- "name": "NetworkPrinter",
+ "name": "cordova-plugin-network-printer",
  "version": "0.0.1",
  "description": "Printing by IP Address",
  "cordova": {
@@ -10,7 +10,8 @@
  },
  "keywords": [
   "Printer",
-  "Network Printer"
+  "Network Printer",
+  "Ionic"
  ],
  "author": "Jagjeet Singh",
  "license": "ISC"
