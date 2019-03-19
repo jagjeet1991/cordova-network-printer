@@ -5,6 +5,5 @@ var exec = require('cordova/exec');
 };*/
 
 exports.print = function (arg0, success, error) {
- alert('adfdfsd');
  exec(success, error, 'NetworkPrinter', 'print', [arg0]);
 }
