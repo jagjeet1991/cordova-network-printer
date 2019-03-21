@@ -27,7 +27,7 @@ public class NetworkPrinter extends CordovaPlugin {
   }
 
   private void print(JSONArray args, final CallbackContext callbackContext) {
-    if (args != null) {
+    if (args != null && args.length() > 0) {
       Thread thread =
           new Thread() {
             @Override
