@@ -74,7 +74,6 @@ public class NetworkPrinter extends CordovaPlugin {
                                 String error = pluginResponse("false", "IO Exception", String.valueOf(ex.getMessage()));
                                 callbackContext.error(error);
                             } catch (Exception ex) {
-                                ex.getMessage()
                                 String error = pluginResponse("false", "Expection", String.valueOf(ex.getMessage()));
                                 callbackContext.error(error);
                             }
