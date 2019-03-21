@@ -34,13 +34,13 @@ public class NetworkPrinter extends CordovaPlugin {
                         public void run() {
                             try {
                                 String ip = null;
-                                if (!args.getJSONObject(0).has("ip")) {
+                                if (args.getJSONObject(0).has("ip")) {
                                     ip = args.getJSONObject(0).getString("ip");
                                 }
                                 if (ip == null) {
                                     throw new Exception("IP address not found.");
                                 }
-                                
+
                                 String portAddr = args.getJSONObject(0).getString("port");
                                 if (portAddr == null) {
                                     throw new Exception("Port not found.");
