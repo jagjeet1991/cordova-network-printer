@@ -41,13 +41,19 @@ public class NetworkPrinter extends CordovaPlugin {
                                     throw new Exception("IP address not found.");
                                 }
 
-                                String portAddr = args.getJSONObject(0).getString("port");
+                                String portAddr = null;
+                                if (args.getJSONObject(0).has("port")) {
+                                    portAddr = args.getJSONObject(0).getString("port");
+                                }
                                 if (portAddr == null) {
                                     throw new Exception("Port not found.");
                                 }
                                 int port = Integer.parseInt(portAddr);
 
-                                String content = args.getJSONObject(0).getString("content");
+                                String content = null;
+                                if (args.getJSONObject(0).has("content")) {
+                                    content = args.getJSONObject(0).getString("content");
+                                }
                                 if (content == null) {
                                     throw new Exception("Print content not found.");
                                 }
@@ -59,32 +65,34 @@ public class NetworkPrinter extends CordovaPlugin {
                                 dataOutputStream.close();
                                 socket.close();
 
-                                String success = pluginResponse("true", "Printing is done.");
+                                String success = pluginResponse("true", "", "Printing is done.");
                                 callbackContext.success(success);
                             } catch (UnknownHostException ex) {
-                                String error = pluginResponse("false", String.valueOf(ex));
+                                String error = pluginResponse("false", "Unknown Host Exception", String.valueOf(ex.getMessage()));
                                 callbackContext.error(error);
                             } catch (IOException ex) {
-                                String error = pluginResponse("false", String.valueOf(ex));
+                                String error = pluginResponse("false", "IO Exception", String.valueOf(ex.getMessage()));
                                 callbackContext.error(error);
                             } catch (Exception ex) {
-                                String error = pluginResponse("false", String.valueOf(ex));
+                                ex.getMessage()
+                                String error = pluginResponse("false", "Expection", String.valueOf(ex.getMessage()));
                                 callbackContext.error(error);
                             }
                         }
                     };
             thread.start();
         } else {
-            callbackContext.error(pluginResponse("false", "Expected paramerters not found."));
+            callbackContext.error(pluginResponse("false", "", "Expected paramerters not found."));
         }
     }
 
-    public String pluginResponse(String status, String message) {
+    public String pluginResponse(String status, String expection, String message) {
         String response = "";
         try {
             Log.v("Network Printer Message", message);
             JSONObject res = new JSONObject();
             res.put("status", status);
+            res.put("expection", expection);
             res.put("message", message);
             response = res.toString();
         } catch (Exception ex) {
