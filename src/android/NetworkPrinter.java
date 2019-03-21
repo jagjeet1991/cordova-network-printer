@@ -56,19 +56,15 @@ public class NetworkPrinter extends CordovaPlugin {
                         socket.close();
 
                         String success = pluginResponse("true", "Printing is done.");
-                        Log.v("Success", success);
                         callbackContext.success(success);
                     } catch (UnknownHostException ex) {
                         String error = pluginResponse("false", String.valueOf(ex));
-                        Log.v("Unknown Error", error);
                         callbackContext.error(error);
                     } catch (IOException ex) {
                         String error = pluginResponse("false", String.valueOf(ex));
-                        Log.v("IO Exception Error", error);
                         callbackContext.error(error);
                     } catch (Exception ex) {
                         String error = pluginResponse("false", String.valueOf(ex));
-                        Log.v("Exception", error);
                         callbackContext.error(error);
                     }
                 }
@@ -81,6 +77,7 @@ public class NetworkPrinter extends CordovaPlugin {
 
     public String pluginResponse(String status, String message) {
         try {
+            Log.v("Network Printer Message", message);
             JSONObject res = new JSONObject();
             res.put("status", status);
             res.put("message", message);
